@@ -54,3 +54,21 @@ class Ticket(models.Model):
 
     def __str__(self):
         return f"#{self.pk} - {self.titulo}"
+
+    @property
+    def status_badge_class(self):
+        mapping = {
+            self.Status.NOVO: 'badge-novo',
+            self.Status.EM_ANDAMENTO: 'badge-andamento',
+            self.Status.RESOLVIDO: 'badge-resolvido',
+        }
+        return mapping.get(self.status, '')
+
+    @property
+    def prioridade_badge_class(self):
+        mapping = {
+            self.Prioridade.BAIXA: 'badge-baixa',
+            self.Prioridade.MEDIA: 'badge-media',
+            self.Prioridade.ALTA: 'badge-alta',
+        }
+        return mapping.get(self.prioridade, '')

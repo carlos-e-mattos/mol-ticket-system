@@ -1,0 +1,58 @@
+{% extends "tickets/base.html" %}
+
+{% block title %}#{{ ticket.pk }} — {{ ticket.titulo }}{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+  <h4 class="mb-0">#{{ ticket.pk }} — {{ ticket.titulo }}</h4>
+  <div class="d-flex gap-2">
+    <a href="{% url 'ticket-update' ticket.pk %}" class="btn btn-outline-secondary">
+      <i class="bi bi-pencil me-1"></i>Editar
+    </a>
+    <a href="{% url 'ticket-delete' ticket.pk %}" class="btn btn-outline-danger">
+      <i class="bi bi-trash me-1"></i>Excluir
+    </a>
+    <a href="{% url 'ticket-list' %}" class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left me-1"></i>Voltar
+    </a>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <small class="text-muted">Cliente</small>
+        <p class="mb-0 fw-semibold">{{ ticket.cliente.nome }}</p>
+        <small class="text-muted">{{ ticket.cliente.email }}</small>
+      </div>
+      <div class="col-md-3">
+        <small class="text-muted">Status</small>
+        <p class="mb-0">
+          <span class="badge {{ ticket.status_badge_class }}">{{ ticket.get_status_display }}</span>
+        </p>
+      </div>
+      <div class="col-md-3">
+        <small class="text-muted">Prioridade</small>
+        <p class="mb-0">
+          <span class="badge {{ ticket.prioridade_badge_class }}">{{ ticket.get_prioridade_display }}</span>
+        </p>
+      </div>
+    </div>
+    <hr />
+    <small class="text-muted">Descrição</small>
+    <p class="mt-1">{{ ticket.descricao|default:"Sem descrição." }}</p>
+    <hr />
+    <div class="row">
+      <div class="col-md-6">
+        <small class="text-muted">Criado em</small>
+        <p class="mb-0">{{ ticket.criado_em|date:"d/m/Y H:i" }}</p>
+      </div>
+      <div class="col-md-6">
+        <small class="text-muted">Atualizado em</small>
+        <p class="mb-0">{{ ticket.atualizado_em|date:"d/m/Y H:i" }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
