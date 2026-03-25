@@ -4,7 +4,7 @@ Sistema de Gestão de Tickets (Chamados) desenvolvido com Django + Django REST F
 
 ## Instalação local
 ```bash
-git clone <url-do-repo>
+git clone git@github.com:carlos-e-mattos/mol-ticket-system.git
 cd mol-ticket-system
 
 python3 -m venv .venv
