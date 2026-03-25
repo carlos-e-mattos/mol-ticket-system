@@ -1,5 +1,7 @@
 from rest_framework import serializers
+
 from .models import Cliente, Ticket
+
 
 class ClienteSerializer(serializers.ModelSerializer):
     class Meta:

@@ -1,7 +1,9 @@
 import django_filters
 from rest_framework import viewsets
+
 from .models import Cliente, Ticket
 from .serializers import ClienteSerializer, TicketSerializer
+
 
 class ClienteFilter(django_filters.FilterSet):
     class Meta:

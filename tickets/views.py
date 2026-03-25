@@ -9,8 +9,10 @@ from django.views.generic import (
     ListView,
     UpdateView,
 )
+
 from .forms import TicketFilterForm, TicketForm
 from .models import Ticket
+
 
 class TicketListView(LoginRequiredMixin, ListView):
     model = Ticket

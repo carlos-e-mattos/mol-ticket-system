@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Cliente(models.Model):
     nome = models.CharField('Nome', max_length=200)
     email = models.EmailField('E-mail', unique=True)
