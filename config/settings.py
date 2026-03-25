@@ -142,3 +142,5 @@ REST_FRAMEWORK = {
         'rest_framework.filters.OrderingFilter',
     ],
 }
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
